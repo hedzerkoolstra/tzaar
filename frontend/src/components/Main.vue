@@ -1,9 +1,9 @@
 <template>
   <div class="container">
+    
     <div class="game">
      
       <Board
-        :gameWon="gameWon"
         :pathOptions="pathOptions"
         @play="play"
         @deselectChip="deselectChip"
@@ -19,8 +19,10 @@
     <randomize-board>
       
     </randomize-board>
+    <!-- {{this.$store.state.mode}} -->
     <AI @play='play' v-if="mode == 'AI'"/>
-    <Socket  v-if="mode == 'Online PvP'" />
+    <!-- {{this.$store.state.playerName}} -->
+    <Socket  v-if="mode == 'Online PvP' && this.$store.state.playerName" />
   </div>
 </template>
 
@@ -31,7 +33,6 @@ import Panel from "./panel/Panel";
 import AI from "./gameplay/AI";
 import Randomizer from "./gameplay/Randomizer";
 import Socket from "./Socket";
-// import Socket from "./Socket";
 
 
 // Scripts
@@ -71,15 +72,15 @@ export default {
       kingsAlive: true,
       movesPossible: true,
       checkingWin: false,
-      gameWon: false
     };
   },
   computed: {
     ...mapState([
-      'player',
+      'activePlayer',
       'action',
       'chipSelected',
-      'mode'
+      'isFirstTurn',
+      'mode',
     ])
   },
   created() {

@@ -3,90 +3,71 @@
     <div class="pri-bar">
       <h1>TZAAR</h1>
       <PlayerName />
+      
       <ul>
         <li v-for="(item, i) in sidebarItems" :key="i">
-          <button class="btn--text" @click="item.action(i)" >{{item.name}}</button>
+          <button class="btn--text" @click="activateComponent(item)">
+            {{ item.name }}
+          </button>
         </li>
       </ul>
-    </div>
-    <div v-if="showSecBar" class="sec-bar" @mouseleave="showSecBar = false">
-      <ul>
-        <li v-for="(item, j) in sidebarItems[contentSecBar].secondaryBar" :key="j">
-          <button class="btn--text" @click="item.action(item.mode)">{{item.name}}</button>
-        </li>
-      </ul>
+      <div class="sec-bar" v-for="(item, i) in sidebarItems" :key="i" >
+        <CloseIcon v-if="item.active" @emit-event="closeWindow()" class="btn-wrapper" />
+        <component v-if="item.active" class="content" :is="item.component">
+          
+        </component>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import PlayerName from '@/components/sidebar/PlayerName';
+import PlayerName from "@/components/sidebar/PlayerName";
+import CloseIcon from "@/components/icons/CloseIcon";
+import ModeSelector from "@/components/sidebar/ModeSelector";
+import TheRules from "@/components/sidebar/TheRules";
+import TheLobby from "@/components/sidebar/TheLobby";
 
 export default {
   components: {
-    PlayerName
+    PlayerName,
+    CloseIcon,
+    ModeSelector,
+    TheRules,
+    TheLobby,
   },
   data() {
     return {
-      showSecBar: false,
-      contentSecBar: 0,
-      sidebarItems: 
-      [
+      sidebarItems: [
         {
-          name: 'Play',
-          action: this.showSec,
-          secondaryBar: [
-            {
-              name: 'VS Computer',
-              action: this.setMode,
-              mode: 'AI'
-            },
-            {
-              name: 'VS Player Online',
-              action: this.setMode,
-              mode: 'Online PvP'
-            },
-            {
-              name: 'VS Player Offline',
-              action: this.setMode,
-              mode: 'Offline PvP'
-            }
-          ]
+          name: "Play",
+          active: false,
+          component: ModeSelector,
         },
         {
-          name: 'Rules',
-          action: this.showRules,
-          secondaryBar: {
-            name: 'PvP'
-          }
+          name: "Rules",
+          active: false,
+          component: TheRules,
         },
         {
-          name: 'Lobby',
-          action: this.goToLobby,
-          secondaryBar: {
-            name: 'PvP'
-          }
-        }
-      ]
+          name: "Lobby",
+          active: false,
+          component: TheLobby,
+        },
+      ],
     };
   },
   methods: {
-    showSec(i) {
-      this.showSecBar = true;
-      this.contentSecBar = i
+    activateComponent(selectedItem) {
+      this.closeWindow();
+      selectedItem.active = true;
     },
-    showRules() {
-      
+    closeWindow() {
+      this.sidebarItems.forEach((item) => {
+        item.active = false;
+      });
     },
-    goToLobby() {
-
-    },
-    setMode(mode) {
-      this.showSecBar = false;
-      window.localStorage.setItem('mode', mode)
-      window.location.reload();
-    }   
-  }
+  },
 };
 </script>
 
@@ -130,8 +111,16 @@ export default {
     left: calc(#{$sidebar-width} + 2rem);
     height: 100vh;
     background-color: $sec-dark;
-    padding: 1rem 2rem;
     z-index: 5;
+    .content {
+      margin-top: 10rem;
+      padding: 0 2rem;
+    }
+  }
+  .btn-wrapper {
+    margin-left: auto;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
   }
 }
 </style>

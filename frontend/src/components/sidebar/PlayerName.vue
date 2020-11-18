@@ -1,64 +1,71 @@
 <template>
   <div class="player-name">
-    <span v-if="!edit">{{ playerName }}</span>
-    <input ref="name" v-else type="text" v-model="playerName" />
+    <span v-if="!edit">{{ inputName }}</span>
+    <input ref="name" v-else type="text" v-model="inputName" />
 
-    <EditIcon v-if="!edit" @emit-event="edit = true"/>
-    <SaveIcon v-else @emit-event="saveName()"/>
-    <!-- <button class="btn" v-if="!edit" @click="edit = true">Edit</button>
-    <button class="btn"  @click="saveName()">Save</button> -->
+    <EditIcon v-if="!edit" @emit-event="edit = true" />
+    <SaveIcon v-else @emit-event="saveName()" />
   </div>
 </template>
 
 <script>
-import EditIcon from '@/components/icons/EditIcon'
-import SaveIcon from '@/components/icons/SaveIcon'
-
+import EditIcon from "@/components/icons/EditIcon";
+import SaveIcon from "@/components/icons/SaveIcon";
 
 export default {
   components: {
     EditIcon,
-    SaveIcon
+    SaveIcon,
   },
   data() {
     return {
-      inputName: this.playerName,
+      inputName: "",
       edit: false,
     };
   },
   computed: {
-    playerName: {
-        get() {
-          return this.$store.state.playerName
-        },
-        set(name) {
-          this.$store.commit('SET_PLAYER_NAME', name)
-        }
-        
-    }
+    players() {
+      return this.$store.state.socket.players;
+    },
   },
   created() {
-    this.playerName = localStorage.getItem('playerName')
-    if (this.playerName == undefined) {
-        this.setAnonymousName();
+    this.inputName = localStorage.getItem("playerName");
+    // console.log(this.inputName);
+    if (this.inputName == undefined) {
+      this.setAnonymousName();
     }
+    this.$store.commit("SET_PLAYER_NAME", this.inputName);
   },
   methods: {
+    checkIfNameExists() {
+      let nameExists = false;
+      this.players.forEach((player) => {
+        if (this.inputName == player.name) {
+          nameExists = true;
+        }
+      });
+      return nameExists;
+    },
     setAnonymousName() {
-        let playerNumber = Math.round(Math.random() * 10000);
-        this.playerName = "Guest-" + playerNumber;
-        this.$store.commit('SET_PLAYER_NAME', this.playerName)
+      let playerNumber = Math.round(Math.random() * 10000);
+      this.inputName = "Guest-" + playerNumber;
     },
     saveName() {
-        localStorage.setItem('playerName', this.playerName)
-        this.edit = false
-    }
+      let nameExists = this.checkIfNameExists();
+      if (!nameExists) {
+        this.$socket.emit("pushName", this.inputName);
+        this.$store.commit("SET_PLAYER_NAME", this.inputName);
+        localStorage.setItem("playerName", this.inputName);
+        this.edit = false;
+      } else {
+        console.log("Name Exists");
+      }
+    },
   },
 };
 </script>
 
 <style lang="scss">
-
 @import "@/assets/_variables.scss";
 
 .player-name {
@@ -67,18 +74,18 @@ export default {
   align-items: baseline;
 }
 input {
-    max-width: 60%;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid $white;
-    color: white;
-    font-family: inherit;
-    font-size: 1rem;
-    outline: none;
-    margin-right: 1rem;
-    padding: 0;
+  max-width: 60%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid $white;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  margin-right: 1rem;
+  padding: 0;
 }
 .player-name .btn {
-    padding: 0.2rem 0.3rem;
+  padding: 0.2rem 0.3rem;
 }
 </style>

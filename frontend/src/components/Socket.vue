@@ -1,33 +1,50 @@
 <template>
-  <div>
-    <h1>Socket</h1>
-    <button @click="sendMove()">Send data</button>
+  <div>Socket
+    <div>my color: {{me}}</div>
+    <div>Opponent color: {{opp.color}}</div>
   </div>
+  
 </template>
 
-
-
-
 <script>
-// Socket.io
-import io from "socket.io-client";
-
 export default {
   data() {
     return {
-      // socket: io("localhost:3000"),
       move: { a: 2 },
     };
   },
+  computed: {
+    playerName() {
+      return this.$store.state.playerName
+    },
+    players() {
+      return this.$store.state.socket.players
+    },
+    opp() {
+      return this.$store.state.socket.opponentCreds
+    },
+    me() {
+      return this.$store.state.socket.playerCreds.color
+    }
+  },
+  sockets: {
+    connect() {
+      this.$socket.emit("pushName", this.playerName)
+      this.$store.commit('socket/SET_PLAYER_CREDS', {
+        name: this.playerName,
+        id: this.$socket.id,
+        color: 'white'
+      })
+    }
+  },
   created() {
-    this.socket.on("note", (msg) => {
-      console.log(msg);
-    });
+    this.$socket.connect()
+    console.log('Socket rendered');
   },
   methods: {
-    sendMove() {
-        this.socket.emit('msg', this.move)
-    }
+    // sendMove() {
+    //     this.socket.emit('msg', this.move)
+    // }
   },
 };
 </script>

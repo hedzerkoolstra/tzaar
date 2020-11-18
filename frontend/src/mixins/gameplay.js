@@ -1,17 +1,16 @@
 export const Gameplay = {
   methods: {
     play(field, x) {
-      if (field.occupied == false) {
+      if (!field.occupied) {
         this.$store.commit('SET_WARNING', "You cannot target empty fields")
       } else {
-        if (field.color != this.player && this.chipSelected == false) {
+        if (field.color != this.activePlayer && !this.chipSelected) {
           this.$store.commit('SET_WARNING', `You cannot move ${field.color} pieces`)
         } else {
-          if (this.chipSelected == false) {
+          if (!this.chipSelected) {
             this.selectChip(field, x);
           } else {
             if (this.checkIfValidOption(field.id)) {
-              
               if (this.action == 1) {
                 this.firstAction(field, x);
               } else {
@@ -24,11 +23,11 @@ export const Gameplay = {
         }
       }
     },
-    async selectChip(field, x) {
+    selectChip(field, x) {
       this.selectedChip = field;
       field.selected = true
       this.$store.commit("chipSelected", true);
-      await this.determinPathOptions(this.board, field, x);
+      this.determinPathOptions(this.board, field, x);
       if (this.$store.state.showHelper) {
         this.showOptions();
       }
@@ -64,13 +63,18 @@ export const Gameplay = {
         this.selectedChip.occupied = false;
         // await this.checkWin();
 
-        if (this.action == 1) {
-          this.resetTurn();
-          this.$store.commit("changeAction", 2);
-        } else if (this.action == 2) {
-          // console.log('beforeSwitch')
+        if (this.isFirstTurn) {
           this.switchTurn();
-        }
+          this.$store.commit("FIRST_TURN", false)
+        } else {
+          if (this.action == 1) {
+            this.resetTurn();
+            this.$store.commit("changeAction", 2);
+          } else {
+            // console.log('beforeSwitch')
+            this.switchTurn();
+          }
+        }   
       }
     },
     stackTower(field) {
@@ -114,7 +118,7 @@ export const Gameplay = {
             if (field.id == optionalField.id) {
               if (
                 this.selectedChip.height >= field.height &&
-                this.player != field.color &&
+                this.activePlayer != field.color &&
                 this.action == 1
               ) {
                 optionalField.classList.add("active");

@@ -1,6 +1,6 @@
 <template>
   <div class="player-info">
-    <div class="player-name">{{ this.playerName }}</div>
+    <div class="player-name">{{ this.playerName }} {{playerColor}}</div>
     <div class="captured-pieces">
       <div class="score">
         <span>{{piecesLeft.tzaar}}</span>

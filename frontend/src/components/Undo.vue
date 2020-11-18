@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     ...mapState([
-      'player',
+      'activePlayer',
       'action',
       'chipSelected',
       'lastBoard'
@@ -72,7 +72,7 @@ export default {
       const savedBoard = cloneDeep(this.board)
       this.boardStates.push(savedBoard)
       console.log('boardstates:', this.boardStates)
-      this.playerStates.push(this.player)
+      this.playerStates.push(this.activePlayer)
       this.actionStates.push(this.action)
       this.chipStates.push(this.chipSelected)
     }

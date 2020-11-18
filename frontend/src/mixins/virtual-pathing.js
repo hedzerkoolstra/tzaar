@@ -35,9 +35,9 @@ export const VirtualPathing = {
     },
     addOption(pathOption, firstAction) {
       // console.log('action', firstAction);
-      if (firstAction && pathOption.color != this.player) {
+      if (firstAction && pathOption.color != this.activePlayer) {
         this.pathOptions.push({ field: pathOption, destX: this.checkedX });
-      } else if (!firstAction && this.turnNumber < 2 && pathOption.color == this.player) {
+      } else if (!firstAction && this.turnNumber < 2 && pathOption.color == this.activePlayer) {
         this.pathOptions.push({ field: pathOption, destX: this.checkedX });
       } else if (!firstAction && this.turnNumber >= 2) {
         this.pathOptions.push({ field: pathOption, destX: this.checkedX });

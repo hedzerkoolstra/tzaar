@@ -10,7 +10,7 @@ export const CheckWin = {
             await this.board.data.forEach(row => {
               row.row.forEach(element => {
                 // Check if there is at least one piece of every role alive
-                if (element.color == this.player) {
+                if (element.color == this.activePlayer) {
                   if (element.occupied == true) {
                     if (element.role == "Tzaar") {
                       this.kingsAlive = true;
@@ -23,7 +23,7 @@ export const CheckWin = {
                 }
                 // Check if there are any options left
                 if (this.action == 2) {
-                  if (element.empty != true && element.color == this.player) {
+                  if (element.empty != true && element.color == this.activePlayer) {
                     this.determinPathOptions(element, row.x);
                   }
                 }
@@ -43,10 +43,10 @@ export const CheckWin = {
             }
           },
           winGame() {
-            this.gameWon = true;
+            this.$store.commit('GAME_IS_PLAYING', false);
             this.$store.commit('changePlayer');
-            let msg = `${this.player} Wins`;
-            this.$store.state.commit("ADD_MESSAGE", msg)
+            let msg = `${this.activePlayer} Wins`;
+            this.$store.commit("ADD_MESSAGE", msg)
           }
     }
 }

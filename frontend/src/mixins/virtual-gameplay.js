@@ -54,7 +54,7 @@ export const VirtualGameplay = {
     // Utility Functions
     resetBoard() {
       this.chipSelected = false;
-      this.player = "black";
+      this.activePlayer = "black";
     },
     updateTurnInfo() {
       this.chipSelected = false;

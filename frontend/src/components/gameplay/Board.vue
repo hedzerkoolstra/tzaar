@@ -10,7 +10,7 @@
           transparent: field.color == 'transparent',
           empty: field.empty === true,
         }"
-        :disabled="gameWon"
+        :disabled="!gameIsPlaying || playerColor != activePlayer"
       >
         <div
           class="chip"
@@ -45,7 +45,7 @@ import { Pathing } from "@/mixins/pathing.js";
 
 export default {
   mixins: [Pathing],
-  props: ["gameWon", "pathOptions"],
+  props: ["pathOptions"],
   data() {
     return {
       field: "",
@@ -55,14 +55,35 @@ export default {
     board() {
       return this.$store.state.board;
     },
+    gameIsPlaying() {
+      return this.$store.state.gameIsPlaying
+    },
+    mode() {
+      return this.$store.state.mode
+    },
+    activePlayer() {
+      return this.$store.state.activePlayer
+    },
+    playerColor() {
+      if (this.mode == 'Online PvP') {
+        // console.log(this.$store.state.socket.playerCreds.color);
+        return this.$store.state.socket.playerCreds.color
+      } else {
+        return this.$store.state.activePlayer
+      }
+    }
   },
   mounted: function () {
     this.styleBoard();
   },
   methods: {
     play(field, x) {
-      this.$emit("play", field, x);
-      // this.$store.commit('PLAY_MOVE', {field: field, x: x})
+      //  this.$emit("play", field, x);
+      if (this.mode == 'Online PvP') {
+        this.$store.dispatch('socket/pushMove', {field: field, x: x})
+      } else {
+        this.$emit("play", field, x);
+      }   
     },
     styleBoard() {
       this.board.data.forEach((row) => {

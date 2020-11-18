@@ -1,14 +1,15 @@
 <template>
   <div>
     <ShuffleIcon @emit-event="randomizeBoard()" :color="'white'" />
+    toggle: {{ toggleBoard }}
   </div>
 </template>
 
 <script>
-import ShuffleIcon from '@/components/icons/ShuffleIcon'
+import ShuffleIcon from "@/components/icons/ShuffleIcon";
 export default {
   components: {
-    ShuffleIcon
+    ShuffleIcon,
   },
   data() {
     return {
@@ -21,9 +22,19 @@ export default {
     board() {
       return this.$store.state.board.data;
     },
+    toggleBoard() {
+      return this.$store.state.toggleBoard;
+    },
   },
   created() {
-    // this.randomizeBoard();
+    this.$store.watch((state) => {return state.toggleBoard},
+      () => {
+        if (this.toggleBoard) {
+          this.randomizeBoard();
+          this.$store.dispatch("socket/pushAccept");
+        }
+      }
+    );
   },
   methods: {
     randomizeBoard() {

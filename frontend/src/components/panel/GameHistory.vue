@@ -7,7 +7,7 @@
     </div>
 
     <br />
-    <div class="status">{{ player }} player's turn, action {{ action }}</div>
+    <div class="status">{{ activePlayer }} player's turn - action {{ action }}</div>
     <div class="warning" v-if="warning">{{ warning }}</div>
   </div>
 </template>
@@ -17,7 +17,7 @@ import { mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["player", "action", "messages", "warning"]),
+    ...mapState(["activePlayer", "action", "messages", "warning"]),
   },
 };
 </script>
@@ -31,10 +31,11 @@ export default {
   background-color: #55636a;
   color: white;
   overflow-y: scroll;
+  font-size: 12px;
 }
 
 .note {
-  font-size: 12px;
+  
   text-transform: capitalize;
   padding: 0.25rem 0.5rem;
   &:nth-of-type(even) {
@@ -42,7 +43,6 @@ export default {
   }
 }
 .status {
-  font-size: 14px;
   text-transform: capitalize;
   padding: 0.25rem 0.5rem;
   // &::before {
@@ -53,7 +53,6 @@ export default {
   // }
 }
 .warning {
-  font-size: 14px;
   text-transform: uppercase;
   color: rgb(235, 120, 99);
   padding: 0.25rem 0.5rem;

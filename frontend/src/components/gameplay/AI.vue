@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       virtualBoard: [],
-      player: "black",
+      activePlayer: "black",
       chipSelected: false,
       selectedChip: [],
       pathOptions: [],
@@ -48,8 +48,8 @@ export default {
     }
   },
   watch: {
-    "$store.state.player": function() {
-      if (this.$store.state.player == "black") {
+    "$store.state.activePlayer": function() {
+      if (this.$store.state.activePlayer == "black") {
         this.turnNumber++;
         setTimeout(() => {
           this.performAction();
@@ -87,7 +87,7 @@ export default {
         this.board.data[bestMove.dX].x
       );
 
-      if (this.$store.state.player == "black") {
+      if (this.$store.state.activePlayer == "black") {
         this.initialAction == false;
         setTimeout(() => {
           this.performAction();
@@ -178,7 +178,7 @@ export default {
       return bestMove;
     },
     async minimaxRoot(board, depth, firstAction, isMinimizing, alpha, beta) {
-      // console.log("Turn Info", depth, this.player, this.isMinimizing);
+      // console.log("Turn Info", depth, this.activePlayer, this.isMinimizing);
       this.counter++;
       if (depth == 0) {
         return this.evaluateBoard(board);
@@ -312,10 +312,10 @@ export default {
       return history;
     },
     togglePlayer() {
-      if (this.player == "black") {
-        this.player = "white";
-      } else if (this.player == "white") {
-        this.player = "black";
+      if (this.activePlayer == "black") {
+        this.activePlayer = "white";
+      } else if (this.activePlayer == "white") {
+        this.activePlayer = "black";
       }
       this.isMinimizing = !this.isMinimizing;
     },

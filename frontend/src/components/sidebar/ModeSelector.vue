@@ -1,16 +1,17 @@
 <template>
   <div>
-      <div class="sec-bar-head">
-          <h3>Against:</h3>
-          <!-- <slot></slot> -->
-      </div>
-      <ul>
-        <li v-for="(item, i) in modes" :key="i">
-          <button class="btn--text" @click="setMode(item.mode)">
-            - {{ item.name }}
-          </button>
-        </li>
-      </ul>
+    <h2>Select mode</h2>
+    <div class="modes">
+      <button
+        class="btn"
+        v-for="(item, i) in modes"
+        :key="i"
+        @click="setMode(item.mode)"
+        :class="{ disabled: item.mode == 'AI' }"
+      >
+        {{ item.label }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -20,16 +21,16 @@ export default {
     return {
       modes: [
         {
-          name: "Computer",
-          mode: "AI",
-        },
-        {
-          name: "Player Online",
+          label: "Play Online",
           mode: "Online PvP",
         },
         {
-          name: "Player Offline",
+          label: "Play Offline",
           mode: "Offline PvP",
+        },
+        {
+          label: "Computer",
+          mode: "AI",
         },
       ],
     };
@@ -43,5 +44,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.modes {
+  display: flex;
+  flex-direction: column;
+  .btn {
+    margin-bottom: 1rem;
+    width: 10rem;
+    padding: 1rem 0;
+  }
+}
+.modes .btn .disabled {
+  background-color: $grey;
+}
 </style>

@@ -1,93 +1,68 @@
 <template>
   <div class="board">
-    <div class="board-row" v-for="row in board.data" :key="row.x">
+    <div class="board-row" v-for="(col, i) in board" :key="i">
       <button
-        v-for="field in row.row"
+        v-for="field in col"
         :key="field.id"
-        @click="play(field, row.x)"
+        @click="play(field)"
         class="board-field"
         :class="{
           transparent: field.color == 'transparent',
           empty: field.empty === true,
         }"
-        :disabled="!gameIsPlaying || playerColor != activePlayer"
+        :disabled="disable"
       >
-        <div
-          class="chip"
-          :id="field.id"
-          :class="{
-            black: field.color == 'black',
-            white: field.color == 'white',
-            empty: field.occupied == false,
-            selected: field.selected == true,
-          }"
-        >
-          <div
-            :class="{ tzarra: field.role == 'Tzarra' || field.role == 'Tzaar' }"
-          >
-            <div :class="{ tzaar: field.role == 'Tzaar' }"></div>
-          </div>
-          <!-- {{field.id}} -->
-          <div class="height-indicator">
-            <div>{{ field.height }}</div>
-          </div>
-        </div>
-
+        <Chip :field="field" />
         <canvas width="80px" height="80px" :ref="field.id"></canvas>
+
       </button>
+     
     </div>
   </div>
 </template>
 
 <script>
 // Scritps
-import { Pathing } from "@/mixins/pathing.js";
+import Chip from "./Chip";
+import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
-  mixins: [Pathing],
-  props: ["pathOptions"],
-  data() {
-    return {
-      field: "",
-    };
-  },
+  components: { Chip },
   computed: {
-    board() {
-      return this.$store.state.board;
-    },
-    gameIsPlaying() {
-      return this.$store.state.gameIsPlaying
-    },
-    mode() {
-      return this.$store.state.mode
-    },
-    activePlayer() {
-      return this.$store.state.activePlayer
-    },
-    playerColor() {
-      if (this.mode == 'Online PvP') {
-        // console.log(this.$store.state.socket.playerCreds.color);
-        return this.$store.state.socket.playerCreds.color
+    ...mapState([
+      "board",
+      "gameIsPlaying",
+      "mode",
+      "activePlayer",
+      "selectedChip",
+      "action",
+    ]),
+    ...mapGetters('socket', [
+      "playerColor",
+    ]),
+    disable() {
+      if (!this.gameIsPlaying) {
+        return true
+      } else if (this.mode == 'Online PvP' && this.playerColor != this.activePlayer) {
+        return true
       } else {
-        return this.$store.state.activePlayer
+        return false
       }
     }
   },
-  mounted: function () {
+  mounted() {
     this.styleBoard();
   },
   methods: {
-    play(field, x) {
-      //  this.$emit("play", field, x);
-      if (this.mode == 'Online PvP') {
-        this.$store.dispatch('socket/pushMove', {field: field, x: x})
-      } else {
-        this.$emit("play", field, x);
-      }   
+    play(targetedChip) {
+      this.$store.dispatch("socket/pushMove", targetedChip);
     },
     styleBoard() {
-      this.board.data.forEach((row) => {
-        row.row.forEach((element) => {
+      console.log('board ' + JSON.stringify(this.board));
+      this.board.forEach((col) => {
+        col.forEach((element) => {
+          console.log(element);
           if (element.empty != true) {
             var canvas = this.$refs[element.id][0];
             var ctx = canvas.getContext("2d");
@@ -100,18 +75,13 @@ export default {
             ctx.moveTo(0, 20);
             ctx.lineTo(80, 60);
             ctx.stroke();
-
             ctx.lineWidth = 2;
-            ctx.strokeStyle = "rgb(233, 233, 233)";
+            ctx.strokeStyle = "rgb(31,31,31)";
             ctx.stroke();
           }
         });
       });
-    },
-  },
+    }
+  }
 };
 </script>
-
-<style>
-
-</style>

@@ -4,7 +4,6 @@ import VueSocketio from 'vue-socket.io';
 import App from './App.vue';
 import store from './store';
 
-// 
 Vue.config.performance = true
 Vue.config.productionTip = false
 Vue.use(Vuex)

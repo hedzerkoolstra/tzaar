@@ -2,7 +2,7 @@
   <div id="app">
     <SideBar />
     <Main />
-    <InvitationBox v-if="invitationPending" />
+    <Overlay v-if="popup != 'none'" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 // Components
 import Main from './components/Main';
 import SideBar from './components/sidebar/SideBar';
-import InvitationBox from './components/InvitationBox';
+import Overlay from './components/popups/Overlay';
 
 // Style
 import './assets/style.scss'
@@ -20,15 +20,15 @@ export default {
   components: {
     Main,
     SideBar,
-    InvitationBox  
+    Overlay  
   },
   beforeCreate() {
     console.log('create socket');
     this.$store.commit('socket/SET_SOCKET', this.$socket)
   },
   computed: {
-      invitationPending() {
-        return this.$store.state.socket.invitationPending
+      popup() {
+        return this.$store.state.popup
       }
   }
 }

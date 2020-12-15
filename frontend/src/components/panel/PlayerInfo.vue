@@ -1,18 +1,18 @@
 <template>
   <div class="player-info">
-    <div class="player-name">{{ this.playerName }} {{playerColor}}</div>
+    <div class="player-name">{{ playerName }}</div>
     <div class="captured-pieces">
       <div class="score">
         <span>{{piecesLeft.tzaar}}</span>
-        <img :src="require('@/assets/images/' + icons[playerColor].tzaar) " alt="" />
+        <img :src="require('@/assets/images/' + buttons[playerColor].tzaar) " alt="tzaar" />
       </div>
       <div class="score">
         <span>{{piecesLeft.tzarra}}</span>
-        <img :src="require('@/assets/images/' + icons[playerColor].tzarra) " alt="" />
+        <img :src="require('@/assets/images/' + buttons[playerColor].tzarra) " alt="tzarra" />
       </div>
       <div class="score">
         <span>{{piecesLeft.tott}}</span>
-        <img :src="require('@/assets/images/' + icons[playerColor].tott) " alt="" />
+        <img :src="require('@/assets/images/' + buttons[playerColor].tott) " alt="tott" />
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      icons: {
+      buttons: {
         white: {
           tzaar: 'white-tzaar.png',
           tzarra: 'white-tzarra.png',
@@ -50,10 +50,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/_variables.scss";
+;
 
 .player-info {
-  background-color: $sec-teal;
+  background-color: $information-color;
   color: $white;
   display: flex;
   justify-content: space-between;

@@ -47,7 +47,8 @@ export const Pathing = {
       }
     },
     addOption(pathOption) {
-      this.pathOptions.push(pathOption.id);
+      this.store.commit('ADD_PATH_OPTION', pathOption.id)
+      // this.pathOptions.push(pathOption.id);
     },
     checkIfValidOption(id) {
       if (!this.ai) {

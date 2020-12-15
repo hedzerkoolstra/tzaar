@@ -1,70 +1,99 @@
-const path = require('path');
-const http = require('http');
-const express = require('express');
-const socketio = require('socket.io')
+const path = require("path");
+const http = require("http");
+const express = require("express");
+const socketio = require("socket.io");
 const app = express();
-const server = http.createServer(app)
-const io = socketio(server)
+const server = http.createServer(app);
+const io = socketio(server);
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Load Files
-const lobby = require('./init/manage-lobby')
-const game = require('./init/create-game')
-const move = require('./game-logic/moving')
+const lobby = require("./init/manage-lobby");
+const game = require("./init/create-game");
+const move = require("./game-logic/moving");
 
 // Set Properties
+let allGames = {};
 
 // Client connects
-io.on('connection', socket => {
-  let id = socket.id
-  console.log('Socket joined: ' + id);
+io.on("connection", (socket) => {
+  let id = socket.id;
+  console.log("Socket joined: " + id);
 
-  socket.on('pushName', name => {
-    console.log('New Name: ', name);
-    let player = {name: name, id: id}
-    let allPlayers = lobby.addPlayer(player)
-    io.emit('pullName', allPlayers)
-  })
-
-  socket.on('pushInvitation', players => {
-    console.log('Invite player:', players.invitee.name); 
-    // Invite opponent
-    io.to(players.invitee.id).emit('pullInvite', players.inviter);
-    // Join room
-    socket.join(players.inviter.id)
-  })
-
-  socket.on('pushAccept', data => {
-    console.log('Accepted ', data.room);
-    // Create a new game
-    let gameState = game.init(data)
-    // Join room
-    socket.join(data.room)
-    //Invite opponent
-    io.to(data.room).emit('pullGame', gameState)  
-  })
-
-  socket.on('pushDecline', msg => {
-    console.log(msg);   
-  })
-
-  socket.on('pushMove', move => {
-    console.log(move);
-  })
-
-  // socket.on('pushMove')
-  socket.on('disconnect', () => {
-    console.log("A user disconnected " + id);
-    let allPlayers = lobby.removePlayer(id);
-    io.emit('pullName', allPlayers)
+  socket.on("getGame", (data) => {
+    let gameState = game.init(data);
+    allGames[socket.id] = gameState;
+    socket.emit("pullRoom", gameState.room)
+    socket.emit("pullGame", gameState);
   });
 
-  // socket.on('setMove', data => {
-  //   console.log('User move:' + data.x)
-  //   startProcess(data)
-  // })
-})
+  socket.on("pushName", (name) => {
+    console.log("New Name: ", name);
+    let player = { name: name, id: id };
+    let allPlayers = lobby.addPlayer(player);
+    io.emit("pullName", allPlayers);
+  });
+
+  socket.on("pushInvite", (players) => {
+    io.to(players.invitee.id).emit("pullInvite", players.inviter);
+    socket.join(players.inviter.id);
+  });
+
+  socket.on("pushAccept", (room) => {
+    socket.join(room);
+    let gameState = game.init(room);
+    allGames[room] = gameState;
+    socket.broadcast.emit('pullAccept')
+
+    socket.emit("pullColors", { 
+      player: gameState.playerColors[0], 
+      opponent: gameState.playerColors[1] }
+    );
+
+    socket.broadcast.emit("pullColors", { 
+      player: gameState.playerColors[1], 
+      opponent: gameState.playerColors[0] }
+    );
+
+    io.to(room).emit("pullRoom", room);
+    io.to(room).emit("pullGame", gameState);
+  });
+
+  socket.on("pushDecline", (msg) => {
+    socket.broadcast.emit('pullDecline')
+    console.log(msg);
+  });
+
+  socket.on("pushMove", (moveInfo) => {
+    console.log('playing in room: ' + moveInfo.room);
+    let submittedMove = move.submitMove(moveInfo.targetedChip, allGames[moveInfo.room]);
+    
+    if (submittedMove.isValid) {
+      allGames[moveInfo.room] = submittedMove.gameState;
+      io.to(moveInfo.room).emit("pullGame", submittedMove.gameState);
+    } else {
+      console.log("invalid", submittedMove.msg);
+      socket.emit("pullInvalidMove", submittedMove.msg);
+    }
+  });
+
+  socket.on("pushDeselectChip", (moveInfo) => {
+    let submittedMove = move.deselectChip(moveInfo.chip, allGames[moveInfo.room])
+    io.to(moveInfo.room).emit("pullGame", submittedMove.gameState);
+  })
+
+  socket.on("pushPassTurn", (moveInfo) => {
+    let submittedMove = move.passTurn(allGames[moveInfo.room])
+    io.to(moveInfo.room).emit("pullGame", submittedMove.gameState);
+  })
+
+  socket.on("disconnect", () => {
+    console.log("A user disconnected " + id);
+    let allPlayers = lobby.removePlayer(id);
+    io.emit("pullName", allPlayers);
+  });
+});
 
 const PORT = 5555 || process.env.PORT;
 

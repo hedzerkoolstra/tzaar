@@ -1,21 +1,32 @@
 <template>
   <div>
-    <ShuffleIcon @emit-event="randomizeBoard()" :color="'white'" />
-    toggle: {{ toggleBoard }}
+    <ShuffleIcon
+      @emit-event="randomizeBoard()"
+      :color="'white'"
+      v-if="showIcon"
+    />
+    <!-- :class="{ disabled: gameIsPlaying }" -->
   </div>
 </template>
 
 <script>
-import ShuffleIcon from "@/components/icons/ShuffleIcon";
+import ShuffleIcon from "@/components/buttons/ShuffleIcon";
+
 export default {
   components: {
     ShuffleIcon,
   },
+  props: {
+    showIcon: {
+      default: false,
+      type: Boolean,
+    },
+  },
   data() {
     return {
       randomBoard: [],
-      pieceCategories: [],
-      pieceCategoriesLeft: 8,
+      chipCatogories: [],
+      chipCatogoriesLeft: 8,
     };
   },
   computed: {
@@ -25,9 +36,18 @@ export default {
     toggleBoard() {
       return this.$store.state.toggleBoard;
     },
+    showHelper() {
+      return this.$store.state.showHelper;
+    },
+    gameIsPlaying() {
+      return this.$store.state.gameIsPlaying;
+    },
   },
   created() {
-    this.$store.watch((state) => {return state.toggleBoard},
+    this.$store.watch(
+      (state) => {
+        return state.toggleBoard;
+      },
       () => {
         if (this.toggleBoard) {
           this.randomizeBoard();
@@ -38,7 +58,44 @@ export default {
   },
   methods: {
     randomizeBoard() {
-      this.pieceCategories = [
+      this.resetData();
+
+      this.board.forEach((col) => {
+        col.forEach((field) => {
+          if (field.empty != true && field.id != 510) {
+            this.assignRandomChip(field);
+          }
+        });
+      });
+    },
+    assignRandomChip(field) {
+      let newPiece = this.getRandomChip();
+      if (newPiece) {
+        field.color = newPiece.color;
+        field.role = newPiece.role;
+      }
+    },
+    getRandomChip() {
+      let categoryNumber = Math.round(
+        Math.random() * (this.chipCatogoriesLeft - 1)
+      );
+      let newPiece = this.chipCatogories[categoryNumber];
+      if (newPiece.piecesToAssign == 0) {
+        this.removeCategory(categoryNumber);
+        if (this.chipCatogoriesLeft > 0) {
+          return this.getRandomChip();
+        }
+      } else {
+        newPiece.piecesToAssign -= 1;
+        return newPiece;
+      }
+    },
+    removeCategory(categoryNumber) {
+      this.chipCatogoriesLeft -= 1;
+      this.chipCatogories.splice(categoryNumber, 1);
+    },
+    resetData() {
+      this.chipCatogories = [
         { color: "white", role: "Tzaar", piecesToAssign: 6 },
         { color: "white", role: "Tzarra", piecesToAssign: 9 },
         { color: "white", role: "Tott", piecesToAssign: 7 },
@@ -48,40 +105,8 @@ export default {
         { color: "black", role: "Tott", piecesToAssign: 7 },
         { color: "black", role: "Tott", piecesToAssign: 8 },
       ];
-      this.pieceCategoriesLeft = 8;
-      for (let i = 0; i < this.board.length; i++) {
-        const row = this.board[i];
-        for (let j = 0; j < row.row.length; j++) {
-          const element = row.row[j];
-          if (element.empty != true) {
-            this.assignPiece(element);
-          }
-        }
-      }
-    },
-    assignPiece(element) {
-      let newPiece = this.getRandomPiece();
-      if (newPiece) {
-        element.color = newPiece.color;
-        element.role = newPiece.role;
-      }
-    },
-    getRandomPiece() {
-      let n = Math.round(Math.random() * (this.pieceCategoriesLeft - 1));
-      let newPiece = this.pieceCategories[n];
-      if (newPiece.piecesToAssign == 0) {
-        this.removeCategory(n);
-        if (this.pieceCategoriesLeft > 0) {
-          return this.getRandomPiece();
-        }
-      } else {
-        newPiece.piecesToAssign -= 1;
-        return newPiece;
-      }
-    },
-    removeCategory(n) {
-      this.pieceCategoriesLeft -= 1;
-      this.pieceCategories.splice(n, 1);
+
+      this.chipCatogoriesLeft = 8;
     },
   },
 };

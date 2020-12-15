@@ -12,76 +12,56 @@ export default new Vuex.Store({
     socket
   },
   state: {
-    board: {},
-    playerName: undefined,
+    board: undefined,
     mode: "Offline PvP", 
     toggleBoard: false,
-    gameIsPlaying: true,
-    // Game State 
+    gameIsPlaying: false,
     chipSelected: false,
     selectedChip: {},
     action: 1,
     activePlayer: "white",
     isFirstTurn: true,
-    // To panel
     messages: [],
+    pathOptions: [],
     warning: "",
     showHelper: false,  
-    // Undo
+    popup: 'none',
     lastBoard: [],
   },
   mutations: {
+    SET_GAME(state, gameState) {
+      state.gameIsPlaying = gameState.gameIsPlaying
+      state.board = gameState.board
+      state.isFirstTurn = gameState.isFirstTurn
+      state.chipSelected = gameState.chipSelected
+      state.selectedChip = gameState.selectedChip
+      state.activePlayer = gameState.activePlayer
+      state.pathOptions = gameState.pathOptions
+      state.action = gameState.action
+    },
     SET_MODE: (state, data) => { state.mode = data },
     SET_BOARD: (state, board) => { state.board = board },
-    SET_PLAYER_NAME: (state, name) => {state.playerName = name },
-    SET_WARNING: (state, warning) => {state.warning = warning},
-    FIRST_TURN: (state, boolean) => {state.isFirstTurn = boolean},
     RANDOMIZE_BOARD: (state, toggleBoard) => { state.toggleBoard = toggleBoard },
     SET_PLAYER_TURN: (state, color) => {state.activePlayer = color},
-    GAME_IS_PLAYING: (state, isPlaying) => {state.gameIsPlaying = isPlaying},
+    SET_GAME_PLAYING: (state, isPlaying) => {state.gameIsPlaying = isPlaying},
+    TOGGLE_HELPER: (state) => { state.showHelper = !state.showHelper },
+    ADD_PATH_OPTION: (state, option) => {state.pathOptions.push(option)},
+    EMPTY_PATH_OPTIONS: (state, array) => {state.pathOptions = array},
+    SET_IS_FIRST_TURN: (state, boolean) => {state.isFirstTurn = boolean},
+    SET_ACTION_NUMBER: (state, actionNumber) => {state.action = actionNumber},
+    SET_CHIP_SELECTED: (state, boolean) => { state.chipSelected = boolean },
+    SET_WARNING: (state, warning) => {state.warning = warning},
+    SET_POPUP: (state, status) => { state.popup = status},
     ADD_MESSAGE(state, msg) { 
       state.messages.push(msg)
       state.warning = ""
     },
-    // @Hedzer, dit moet naar /socket
-    SET_GAME(state, game) {
-      console.log(game.board);
-      state.board = game.board
-      state.isFirstTurn = game.isFirstTurn
-      state.chipSelected = game.chipSelected
-      state.selectedChip = game.selectedChip
-      state.action = game.action
-      state.activePlayer = game.activePlayer
-    },
-    toggleHelper(state) {
-      state.showHelper = !state.showHelper;
-    },
-    restoreStatus(state, [board, activePlayer, action, chipState]) {
-      state.lastBoard = board;
-      state.activePlayer = activePlayer;
-      state.action = action;
-      state.chipSelected = chipState;
-    },
-    changePlayer(state) {
+    CHANGE_PLAYER(state) {
       if (state.activePlayer == "black") {
         state.activePlayer = "white";
       } else if (state.activePlayer == "white") {
         state.activePlayer = "black";
       }
-    },
-    changeAction(state, actionState) {
-      state.action = actionState;
-    },
-    chipSelected(state, boolean) {
-      state.chipSelected = boolean;
-    },
-  },
-  actions: {
-    setPlayerName( {commit, state}, name ) {
-      commit('SET_PLAYER_NAME', name)
-      if (state.mode == 'OnlinePvP') {
-        console.log('online');
-      }
     }
-  }
+  },
 });

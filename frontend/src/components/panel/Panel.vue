@@ -1,12 +1,14 @@
 <template>
   <div id="panel">
-    <PlayerInfo :playerName="playerName" :playerColor="'white'" />
+    
+    <PlayerInfo :playerName="playerName" :playerColor="playerColor" />
 
     <Buttons />
 
     <GameHistory />
 
-    <PlayerInfo :playerName="'Opponent'" :playerColor="'black'"/>
+    <PlayerInfo :playerName="opponentName" :playerColor="opponentColor"/>
+
   </div>
 </template>
 
@@ -14,26 +16,26 @@
 import PlayerInfo from "@/components/panel/PlayerInfo";
 import Buttons from "@/components/panel/Buttons";
 import GameHistory from "@/components/panel/GameHistory";
+import { mapGetters } from 'vuex'
 
 export default {
   components: { GameHistory, PlayerInfo, Buttons },
   computed: {
-    playerName() {
-      return this.$store.state.playerName
-    }
+    ...mapGetters('socket', [
+      'playerColor',
+      'opponentColor',
+      'playerName',
+      'opponentName',
+    ])
   }
 };
 </script>
 
 <style lang="scss">
-@import "@/assets/_variables.scss";
+;
 
 #panel {
-  background-color: $pri-dark;
   border-radius: $edge;
-  width: 22rem;
-  padding: 2rem;
-  color: black;
   display: flex;
   flex-direction: column;
 }

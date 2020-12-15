@@ -1,97 +1,76 @@
 <template>
   <div class="buttons">
-    <button
-      class="btn"
-      :class="{ disabled: action == 1 }"
-      @click="switchTurn()"
-    >
-      Pass
-    </button>
-    <button
-      class="btn"
-      :class="{ disabled: !chipSelected }"
-      @click="deselectChip()"
-    >
-      Deselect
-    </button>
+    <SkipIcon @emit-event="switchTurn()" :class="{ disabled: action == 1 }" />
 
-    
+    <DeselectIcon
+      @emit-event="deselectChip()"
+      :class="{ disabled: !chipSelected }"
+    />
+
+    <!-- <Randomizer :showIcon="true" v-if="mode == 'Offline PvP'" /> -->
+
     <label class="switch">
-        <input type="checkbox" @change="toggleHelper()">
-        <span class="slider round"></span>
+      <input type="checkbox" @change="toggleHelper()" />
+      <span class="slider round"></span>
+      <LabelOnHover :text="'Active Helper'" />
     </label>
-    <!-- <button class="switch" @click="toggleHelper()"> -->
-    
-    <!-- </button> -->
+
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import DeselectIcon from "../buttons/DeselectIcon.vue";
+import SkipIcon from "../buttons/SkipIcon.vue";
+import LabelOnHover from "../buttons/LabelOnHover";
 
 export default {
-  data() {
-    return {
-      switchStatus: "Off",
-    };
-  },
+  components: { SkipIcon, DeselectIcon, LabelOnHover },
   computed: {
-    ...mapState(["action", "chipSelected"]),
-  },
-  watch: {
-    "$store.state.showHelper": function () {
-      if (this.$store.state.showHelper) {
-        this.switchStatus = "On";
-      } else {
-        this.switchStatus = "Off";
-      }
-    },
+    ...mapState(["action", "chipSelected", "mode"]),
   },
   methods: {
     switchTurn() {
-      this.$emit("switchTurn");
+      this.$store.dispatch("socket/pushPassTurn");
     },
     deselectChip(field) {
-      this.$emit("deselectChip", field);
+      this.$store.dispatch("socket/pushDeselectChip", field);
     },
     toggleHelper() {
-      this.$store.commit("toggleHelper");
+      this.$store.commit("TOGGLE_HELPER");
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import "@/assets/_variables.scss";
-
 .buttons {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   padding: 1rem 0;
   margin-top: 1rem;
-  .btn {
-    font-size: 12px;
-    width: 6rem;
-    padding: 0.5rem;
+  .btn--icon {
     margin-right: 1rem;
   }
 }
 
-.disabled {
-  pointer-events: none;
-  cursor: not-allowed;
-  filter: saturate(0.2);
-}
-
-// Switch
 .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
+.switch {
+  &:hover {
+    .label-on-hover {
+      opacity: 1;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+  }
+}
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -104,9 +83,9 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $background;
-  -webkit-transition: .4s;
-  transition: .4s;
+  background-color: $grey;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -117,16 +96,16 @@ export default {
   left: 4px;
   bottom: 4px;
   background-color: $white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: $sec-teal;
+  background-color: $button-color;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px $pri-teal;
+  box-shadow: 0 0 1px rgb(20, 20, 20);
 }
 
 input:checked + .slider:before {

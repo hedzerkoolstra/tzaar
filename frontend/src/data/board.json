@@ -1,1195 +1,1223 @@
 {
   "data": [
-    {
-      "x": 0,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "empty": true
-        },
-        {
-          "y": 3,
-          "empty": true
-        },
-        {
-          "y": 4,
-          "empty": true
-        },
-        {
-          "y": 5,
-          "empty": true
-        },
-        {
-          "y": 6,
-          "empty": true
-        },
-        {
-          "y": 7,
-          "empty": true
-        },
-        {
-          "y": 8,
-          "empty": true
-        },
-        {
-          "y": 9,
-          "empty": true
-        },
-        {
-          "y": 10,
-          "empty": true
-        },
-        {
-          "y": 11,
-          "empty": true
-        },
-        {
-          "y": 12,
-          "empty": true
-        },
-        {
-          "y": 13,
-          "empty": true
-        },
-        {
-          "y": 14,
-          "empty": true
-        },
-        {
-          "y": 15,
-          "empty": true
-        },
-        {
-          "y": 16,
-          "empty": true
-        },
-        {
-          "y": 17,
-          "empty": true
-        },
-        {
-          "y": 18,
-          "empty": true
-        },
-        {
-          "y": 19,
-          "empty": true
-        }
-      ]
-    },
-    {
-      "x": 1,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "empty": true
-        },
-        {
-          "y": 3,
-          "empty": true
-        },
-        {
-          "y": 4,
-          "empty": true
-        },
-        {
-          "y": 5,
-          "empty": true
-        },
-        {
-          "y": 6,
-          "id": "16",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 7,
-          "empty": true
-        },
-        {
-          "y": 8,
-          "id": "18",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 9,
-          "empty": true
-        },
-        {
-          "y": 10,
-          "id": "110",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 11,
-          "empty": true
-        },
-        {
-          "y": 12,
-          "id": "112",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 13,
-          "empty": true
-        },
-        {
-          "y": 14,
-          "id": "114",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 15,
-          "empty": true
-        },
-        {
-          "y": 16,
-          "empty": true
-        }
-      ]
-    },
-    {
-      "x": 2,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "empty": true
-        },
-        {
-          "y": 3,
-          "empty": true
-        },
-        {
-          "y": 4,
-          "empty": true
-        },
-        {
-          "y": 5,
-          "id": "25",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 6,
-          "empty": true
-        },
-        {
-          "y": 7,
-          "id": "27",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 8,
-          "empty": true
-        },
-        {
-          "y": 9,
-          "id": "29",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 10,
-          "empty": true
-        },
-        {
-          "y": 11,
-          "id": "211",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 12,
-          "empty": true
-        },
-        {
-          "y": 13,
-          "id": "213",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 14,
-          "empty": true
-        },
-        {
-          "y": 15,
-          "id": "215",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 16,
-          "empty": true
-        },
-        {
-          "y": 17,
-          "empty": true
-        }
-      ]
-    },
-    {
-      "x": 3,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "empty": true
-        },
-        {
-          "y": 3,
-          "empty": true
-        },
-        {
-          "y": 4,
-          "id": "34",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 5,
-          "empty": true
-        },
-        {
-          "y": 6,
-          "id": "36",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 7,
-          "empty": true
-        },
-        {
-          "y": 8,
-          "id": "38",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 9,
-          "empty": true
-        },
-        {
-          "y": 10,
-          "id": "310",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 11,
-          "empty": true
-        },
-        {
-          "y": 12,
-          "id": "312",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 13,
-          "empty": true
-        },
-        {
-          "y": 14,
-          "id": "314",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 15,
-          "empty": true
-        },
-        {
-          "y": 16,
-          "id": "316",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 17,
-          "empty": true
-        },
-        {
-          "y": 18,
-          "empty": true
-        }
-      ]
-    },
-    {
-      "x": 4,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "empty": true
-        },
-        {
-          "y": 3,
-          "id": "43",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 4,
-          "empty": true
-        },
-        {
-          "y": 5,
-          "id": "45",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 6,
-          "empty": true
-        },
-        {
-          "y": 7,
-          "id": "47",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 8,
-          "empty": true
-        },
-        {
-          "y": 9,
-          "id": "49",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 10,
-          "empty": true
-        },
-        {
-          "y": 11,
-          "id": "411",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 12,
-          "empty": true
-        },
-        {
-          "y": 13,
-          "id": "413",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 14,
-          "empty": true
-        },
-        {
-          "y": 15,
-          "id": "415",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 16,
-          "empty": true
-        },
-        {
-          "y": 17,
-          "id": "417",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 18,
-          "empty": true
-        },
-        {
-          "y": 19,
-          "empty": true
-        }
-      ]
-    },
-    {
-      "x": 5,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "id": "52",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 3,
-          "empty": true
-        },
-        {
-          "y": 4,
-          "id": "54",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 5,
-          "empty": true
-        },
-        {
-          "y": 6,
-          "id": "56",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 7,
-          "empty": true
-        },
-        {
-          "y": 8,
-          "id": "58",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 9,
-          "empty": true
-        },
-        {
-          "y": 10,
-          "id": "510",
-          "occupied": false,
-          "role": "",
-          "height": 0,
-          "color": "transparent"
-        },
-        {
-          "y": 11,
-          "empty": true
-        },
-        {
-          "y": 12,
-          "id": "512",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 13,
-          "empty": true
-        },
-        {
-          "y": 14,
-          "id": "514",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 15,
-          "empty": true
-        },
-        {
-          "y": 16,
-          "id": "516",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 17,
-          "empty": true
-        },
-        {
-          "y": 18,
-          "id": "518",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 19,
-          "empty": true
-        },
-        {
-          "y": 20,
-          "empty": true
-        }
-      ]
-    },
-    {
-      "x": 6,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "empty": true
-        },
-        {
-          "y": 3,
-          "id": "63",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 4,
-          "empty": true
-        },
-        {
-          "y": 5,
-          "id": "65",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 6,
-          "empty": true
-        },
-        {
-          "y": 7,
-          "id": "67",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 8,
-          "empty": true
-        },
-        {
-          "y": 9,
-          "id": "69",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 10,
-          "empty": true
-        },
-        {
-          "y": 11,
-          "id": "611",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 12,
-          "empty": true
-        },
-        {
-          "y": 13,
-          "id": "613",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 14,
-          "empty": true
-        },
-        {
-          "y": 15,
-          "id": "615",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 16,
-          "empty": true
-        },
-        {
-          "y": 17,
-          "id": "617",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 18,
-          "empty": true
-        },
-        {
-          "y": 19,
-          "empty": true
-        }
-      ]
-    },
-    {
-      "x": 7,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "empty": true
-        },
-        {
-          "y": 3,
-          "empty": true
-        },
-        {
-          "y": 4,
-          "id": "74",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 5,
-          "empty": true
-        },
-        {
-          "y": 6,
-          "id": "76",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 7,
-          "empty": true
-        },
-        {
-          "y": 8,
-          "id": "78",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 9,
-          "empty": true
-        },
-        {
-          "y": 10,
-          "id": "710",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 11,
-          "empty": true
-        },
-        {
-          "y": 12,
-          "id": "712",
-          "occupied": true,
-          "role": "Tzaar",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 13,
-          "empty": true
-        },
-        {
-          "y": 14,
-          "id": "714",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 15,
-          "empty": true
-        },
-        {
-          "y": 16,
-          "id": "716",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 17,
-          "empty": true
-        },
-        {
-          "y": 18,
-          "empty": true
-        }
-      ]
-    },
-    {
-      "x": 8,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "empty": true
-        },
-        {
-          "y": 3,
-          "empty": true
-        },
-        {
-          "y": 4,
-          "empty": true
-        },
-        {
-          "y": 5,
-          "id": "85",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 6,
-          "empty": true
-        },
-        {
-          "y": 7,
-          "id": "87",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 8,
-          "empty": true
-        },
-        {
-          "y": 9,
-          "id": "89",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 10,
-          "empty": true
-        },
-        {
-          "y": 11,
-          "id": "811",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 12,
-          "empty": true
-        },
-        {
-          "y": 13,
-          "id": "813",
-          "occupied": true,
-          "role": "Tzarra",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 14,
-          "empty": true
-        },
-        {
-          "y": 15,
-          "id": "815",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 16,
-          "empty": true
-        },
-        {
-          "y": 17,
-          "empty": true
-        }
-      ]
-    },
-    {
-      "x": 9,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "empty": true
-        },
-        {
-          "y": 3,
-          "empty": true
-        },
-        {
-          "y": 4,
-          "empty": true
-        },
-        {
-          "y": 5,
-          "empty": true
-        },
-        {
-          "y": 6,
-          "id": "96",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 7,
-          "empty": true
-        },
-        {
-          "y": 8,
-          "id": "98",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 9,
-          "empty": true
-        },
-        {
-          "y": 10,
-          "id": "910",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 11,
-          "empty": true
-        },
-        {
-          "y": 12,
-          "id": "912",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "white",
-          "selected": false
-        },
-        {
-          "y": 13,
-          "empty": true
-        },
-        {
-          "y": 14,
-          "id": "914",
-          "occupied": true,
-          "role": "Tott",
-          "height": 1,
-          "color": "black",
-          "selected": false
-        },
-        {
-          "y": 15,
-          "empty": true
-        },
-        {
-          "y": 16,
-          "empty": true
-        }
-      ]
-    },
-    {
-      "x": 10,
-      "row": [
-        {
-          "y": 0,
-          "empty": true
-        },
-        {
-          "y": 1,
-          "empty": true
-        },
-        {
-          "y": 2,
-          "empty": true
-        },
-        {
-          "y": 3,
-          "empty": true
-        },
-        {
-          "y": 4,
-          "empty": true
-        },
-        {
-          "y": 5,
-          "empty": true
-        },
-        {
-          "y": 6,
-          "empty": true
-        },
-        {
-          "y": 7,
-          "empty": true
-        },
-        {
-          "y": 9,
-          "empty": true
-        },
-        {
-          "y": 10,
-          "empty": true
-        },
-        {
-          "y": 11,
-          "empty": true
-        },
-        {
-          "y": 12,
-          "empty": true
-        },
-        {
-          "y": 13,
-          "empty": true
-        },
-        {
-          "y": 14,
-          "empty": true
-        },
-        {
-          "y": 15,
-          "empty": true
-        },
-        {
-          "y": 16,
-          "empty": true
-        },
-        {
-          "y": 17,
-          "empty": true
-        },
-        {
-          "y": 18,
-          "empty": true
-        },
-        {
-          "y": 19,
-          "empty": true
-        }
-      ]
-    }
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "empty": true
+      },
+      {
+        "y": 3,
+        "empty": true
+      },
+      {
+        "y": 4,
+        "empty": true
+      },
+      {
+        "y": 5,
+        "empty": true
+      },
+      {
+        "y": 6,
+        "empty": true
+      },
+      {
+        "y": 7,
+        "empty": true
+      },
+      {
+        "y": 8,
+        "empty": true
+      },
+      {
+        "y": 9,
+        "empty": true
+      },
+      {
+        "y": 10,
+        "empty": true
+      },
+      {
+        "y": 11,
+        "empty": true
+      },
+      {
+        "y": 12,
+        "empty": true
+      },
+      {
+        "y": 13,
+        "empty": true
+      },
+      {
+        "y": 14,
+        "empty": true
+      },
+      {
+        "y": 15,
+        "empty": true
+      },
+      {
+        "y": 16,
+        "empty": true
+      },
+      {
+        "y": 17,
+        "empty": true
+      },
+      {
+        "y": 18,
+        "empty": true
+      },
+      {
+        "y": 19,
+        "empty": true
+      }
+    ],
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "empty": true
+      },
+      {
+        "y": 3,
+        "empty": true
+      },
+      {
+        "y": 4,
+        "empty": true
+      },
+      {
+        "y": 5,
+        "empty": true
+      },
+      {
+        "y": 6,
+        "x": 1,
+        "id": "16",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 7,
+        "empty": true
+      },
+      {
+        "y": 8,
+        "x": 1,
+        "id": "18",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 9,
+        "empty": true
+      },
+      {
+        "y": 10,
+        "x": 1,
+        "id": "110",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 11,
+        "empty": true
+      },
+      {
+        "y": 12,
+        "x": 1,
+        "id": "112",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 13,
+        "empty": true
+      },
+      {
+        "y": 14,
+        "x": 1,
+        "id": "114",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 15,
+        "empty": true
+      },
+      {
+        "y": 16,
+        "empty": true
+      }
+    ],
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "empty": true
+      },
+      {
+        "y": 3,
+        "empty": true
+      },
+      {
+        "y": 4,
+        "empty": true
+      },
+      {
+        "y": 5,
+        "x": 2,
+        "id": "25",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 6,
+        "empty": true
+      },
+      {
+        "y": 7,
+        "x": 2,
+        "id": "27",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 8,
+        "empty": true
+      },
+      {
+        "y": 9,
+        "x": 2,
+        "id": "29",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 10,
+        "empty": true
+      },
+      {
+        "y": 11,
+        "x": 2,
+        "id": "211",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 12,
+        "empty": true
+      },
+      {
+        "y": 13,
+        "x": 2,
+        "id": "213",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 14,
+        "empty": true
+      },
+      {
+        "y": 15,
+        "x": 2,
+        "id": "215",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 16,
+        "empty": true
+      },
+      {
+        "y": 17,
+        "empty": true
+      }
+    ],
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "empty": true
+      },
+      {
+        "y": 3,
+        "empty": true
+      },
+      {
+        "y": 4,
+        "x": 3,
+        "id": "34",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 5,
+        "empty": true
+      },
+      {
+        "y": 6,
+        "x": 3,
+        "id": "36",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 7,
+        "empty": true
+      },
+      {
+        "y": 8,
+        "x": 3,
+        "id": "38",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 9,
+        "empty": true
+      },
+      {
+        "y": 10,
+        "x": 3,
+        "id": "310",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 11,
+        "empty": true
+      },
+      {
+        "y": 12,
+        "x": 3,
+        "id": "312",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 13,
+        "empty": true
+      },
+      {
+        "y": 14,
+        "x": 3,
+        "id": "314",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 15,
+        "empty": true
+      },
+      {
+        "y": 16,
+        "x": 3,
+        "id": "316",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 17,
+        "empty": true
+      },
+      {
+        "y": 18,
+        "empty": true
+      }
+    ],
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "empty": true
+      },
+      {
+        "y": 3,
+        "x": 4,
+        "id": "43",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 4,
+        "empty": true
+      },
+      {
+        "y": 5,
+        "x": 4,
+        "id": "45",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 6,
+        "empty": true
+      },
+      {
+        "y": 7,
+        "x": 4,
+        "id": "47",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 8,
+        "empty": true
+      },
+      {
+        "y": 9,
+        "x": 4,
+        "id": "49",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 10,
+        "empty": true
+      },
+      {
+        "y": 11,
+        "x": 4,
+        "id": "411",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 12,
+        "empty": true
+      },
+      {
+        "y": 13,
+        "x": 4,
+        "id": "413",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 14,
+        "empty": true
+      },
+      {
+        "y": 15,
+        "x": 4,
+        "id": "415",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 16,
+        "empty": true
+      },
+      {
+        "y": 17,
+        "x": 4,
+        "id": "417",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 18,
+        "empty": true
+      },
+      {
+        "y": 19,
+        "empty": true
+      }
+    ],
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "x": 5,
+        "id": "52",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 3,
+        "empty": true
+      },
+      {
+        "y": 4,
+        "x": 5,
+        "id": "54",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 5,
+        "empty": true
+      },
+      {
+        "y": 6,
+        "x": 5,
+        "id": "56",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 7,
+        "empty": true
+      },
+      {
+        "y": 8,
+        "x": 5,
+        "id": "58",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 9,
+        "empty": true
+      },
+      {
+        "y": 10,
+        "x": 5,
+        "id": "510",
+        "occupied": false,
+        "role": "",
+        "height": 0,
+        "color": "transparent"
+      },
+      {
+        "y": 11,
+        "empty": true
+      },
+      {
+        "y": 12,
+        "x": 5,
+        "id": "512",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 13,
+        "empty": true
+      },
+      {
+        "y": 14,
+        "x": 5,
+        "id": "514",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 15,
+        "empty": true
+      },
+      {
+        "y": 16,
+        "x": 5,
+        "id": "516",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 17,
+        "empty": true
+      },
+      {
+        "y": 18,
+        "x": 5,
+        "id": "518",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 19,
+        "empty": true
+      },
+      {
+        "y": 20,
+        "empty": true
+      }
+    ],
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "empty": true
+      },
+      {
+        "y": 3,
+        "x": 6,
+        "id": "63",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 4,
+        "empty": true
+      },
+      {
+        "y": 5,
+        "x": 6,
+        "id": "65",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 6,
+        "empty": true
+      },
+      {
+        "y": 7,
+        "x": 6,
+        "id": "67",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 8,
+        "empty": true
+      },
+      {
+        "y": 9,
+        "x": 6,
+        "id": "69",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 10,
+        "empty": true
+      },
+      {
+        "y": 11,
+        "x": 6,
+        "id": "611",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 12,
+        "empty": true
+      },
+      {
+        "y": 13,
+        "x": 6,
+        "id": "613",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 14,
+        "empty": true
+      },
+      {
+        "y": 15,
+        "x": 6,
+        "id": "615",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 16,
+        "empty": true
+      },
+      {
+        "y": 17,
+        "x": 6,
+        "id": "617",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 18,
+        "empty": true
+      },
+      {
+        "y": 19,
+        "empty": true
+      }
+    ],
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "empty": true
+      },
+      {
+        "y": 3,
+        "empty": true
+      },
+      {
+        "y": 4,
+        "x": 7,
+        "id": "74",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 5,
+        "empty": true
+      },
+      {
+        "y": 6,
+        "x": 7,
+        "id": "76",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 7,
+        "empty": true
+      },
+      {
+        "y": 8,
+        "x": 7,
+        "id": "78",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 9,
+        "empty": true
+      },
+      {
+        "y": 10,
+        "x": 7,
+        "id": "710",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 11,
+        "empty": true
+      },
+      {
+        "y": 12,
+        "x": 7,
+        "id": "712",
+        "occupied": true,
+        "role": "Tzaar",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 13,
+        "empty": true
+      },
+      {
+        "y": 14,
+        "x": 7,
+        "id": "714",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 15,
+        "empty": true
+      },
+      {
+        "y": 16,
+        "x": 7,
+        "id": "716",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 17,
+        "empty": true
+      },
+      {
+        "y": 18,
+        "empty": true
+      }
+    ],
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "empty": true
+      },
+      {
+        "y": 3,
+        "empty": true
+      },
+      {
+        "y": 4,
+        "empty": true
+      },
+      {
+        "y": 5,
+        "x": 8,
+        "id": "85",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 6,
+        "empty": true
+      },
+      {
+        "y": 7,
+        "x": 8,
+        "id": "87",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 8,
+        "empty": true
+      },
+      {
+        "y": 9,
+        "x": 8,
+        "id": "89",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 10,
+        "empty": true
+      },
+      {
+        "y": 11,
+        "x": 8,
+        "id": "811",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 12,
+        "empty": true
+      },
+      {
+        "y": 13,
+        "x": 8,
+        "id": "813",
+        "occupied": true,
+        "role": "Tzarra",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 14,
+        "empty": true
+      },
+      {
+        "y": 15,
+        "x": 8,
+        "id": "815",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 16,
+        "empty": true
+      },
+      {
+        "y": 17,
+        "empty": true
+      }
+    ],
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "empty": true
+      },
+      {
+        "y": 3,
+        "empty": true
+      },
+      {
+        "y": 4,
+        "empty": true
+      },
+      {
+        "y": 5,
+        "empty": true
+      },
+      {
+        "y": 6,
+        "x": 9,
+        "id": "96",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 7,
+        "empty": true
+      },
+      {
+        "y": 8,
+        "x": 9,
+        "id": "98",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 9,
+        "empty": true
+      },
+      {
+        "y": 10,
+        "x": 9,
+        "id": "910",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 11,
+        "empty": true
+      },
+      {
+        "y": 12,
+        "x": 9,
+        "id": "912",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "white",
+        "selected": false
+      },
+      {
+        "y": 13,
+        "empty": true
+      },
+      {
+        "y": 14,
+        "x": 9,
+        "id": "914",
+        "occupied": true,
+        "role": "Tott",
+        "height": 1,
+        "color": "black",
+        "selected": false
+      },
+      {
+        "y": 15,
+        "empty": true
+      },
+      {
+        "y": 16,
+        "empty": true
+      }
+    ],
+    [
+      {
+        "y": 0,
+        "empty": true
+      },
+      {
+        "y": 1,
+        "empty": true
+      },
+      {
+        "y": 2,
+        "empty": true
+      },
+      {
+        "y": 3,
+        "empty": true
+      },
+      {
+        "y": 4,
+        "empty": true
+      },
+      {
+        "y": 5,
+        "empty": true
+      },
+      {
+        "y": 6,
+        "empty": true
+      },
+      {
+        "y": 7,
+        "empty": true
+      },
+      {
+        "y": 9,
+        "empty": true
+      },
+      {
+        "y": 10,
+        "empty": true
+      },
+      {
+        "y": 11,
+        "empty": true
+      },
+      {
+        "y": 12,
+        "empty": true
+      },
+      {
+        "y": 13,
+        "empty": true
+      },
+      {
+        "y": 14,
+        "empty": true
+      },
+      {
+        "y": 15,
+        "empty": true
+      },
+      {
+        "y": 16,
+        "empty": true
+      },
+      {
+        "y": 17,
+        "empty": true
+      },
+      {
+        "y": 18,
+        "empty": true
+      },
+      {
+        "y": 19,
+        "empty": true
+      }
+    ]
   ]
 }

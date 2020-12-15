@@ -1,12 +1,13 @@
 <template>
   <div id="game-history">
-    <div class="note">Game has started</div>
+    <!-- <div class="note">Game has started</div> -->
 
-    <div class="note" v-for="(msg, i) in messages" :key="i">
-      {{ msg }}
+    <div v-if="messages.length > 0" class="notes">
+      <div class="note" v-for="(msg, i) in messages" :key="i">
+        {{ msg }}
+      </div>
     </div>
 
-    <br />
     <div class="status">{{ activePlayer }} player's turn - action {{ action }}</div>
     <div class="warning" v-if="warning">{{ warning }}</div>
   </div>
@@ -23,34 +24,31 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/_variables.scss";
+;
 
 #game-history {
   flex: 1;
   margin: 1rem 0;
-  background-color: #55636a;
+  background-color: $information-color;
+  border-radius: $edge;
   color: white;
-  overflow-y: scroll;
+  overflow-y: auto;
   font-size: 12px;
 }
 
+.notes {
+  margin-bottom: 1rem;
+}
 .note {
-  
   text-transform: capitalize;
   padding: 0.25rem 0.5rem;
   &:nth-of-type(even) {
-    background-color: #6f818a;
+    background-color: #0a2e5e;
   }
 }
 .status {
   text-transform: capitalize;
   padding: 0.25rem 0.5rem;
-  // &::before {
-  //   content: "";
-  //   width: 4px;
-  //   height: 4px;
-  //   background-color: $white;
-  // }
 }
 .warning {
   text-transform: uppercase;

@@ -1,28 +1,12 @@
 <template>
   <div class="container">
-    
-    <div class="game">
-     
-      <Board
-        :pathOptions="pathOptions"
-        @play="play"
-        @deselectChip="deselectChip"
-      />
+    <Board v-if="board" />
+    <div v-else class="board-placeholder"></div>
 
-       <Panel
-        @switchTurn="switchTurn"
-        @deselectChip="deselectChip"
-        @resetTurn="resetTurn"
-        :message="message"
-      />
-    </div>
-    <randomize-board>
-      
-    </randomize-board>
-    <!-- {{this.$store.state.mode}} -->
-    <AI @play='play' v-if="mode == 'AI'"/>
-    <!-- {{this.$store.state.playerName}} -->
-    <Socket  v-if="mode == 'Online PvP' && this.$store.state.playerName" />
+    <Panel />
+
+    <AI @play="play" v-if="mode == 'AI'" />
+
   </div>
 </template>
 
@@ -31,65 +15,70 @@
 import Board from "./gameplay/Board";
 import Panel from "./panel/Panel";
 import AI from "./gameplay/AI";
-import Randomizer from "./gameplay/Randomizer";
-import Socket from "./Socket";
 
-
-// Scripts
-import { Pathing } from '../mixins/pathing.js'
-import { CheckWin } from '../mixins/check-win.js'
-import { Gameplay } from '../mixins/gameplay.js'
-
-
-// Data
-import boardData from "@/data/board.json";
+// // // Data
+// import boardData from "@/data/board.json";
 
 // Store
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     Board,
     Panel,
     AI,
-    Socket,
-    'randomize-board': Randomizer
-  },
-  mixins: [ Pathing, CheckWin, Gameplay ],
-  data() {
-    return {
-      board: boardData,
-      message: "Select Chip To Start",
-      selectedChip: this.$store.state.selectedChip,
-      pathOptions: [],
-      optionStore: [],
-      checkedX: "",
-      checkedY: "",
-      checkedColor: "",
-      checkedHeight: "",
-      jacksAlive: true,
-      queensAlive: true,
-      kingsAlive: true,
-      movesPossible: true,
-      checkingWin: false,
-    };
+    // Randomizer,
   },
   computed: {
     ...mapState([
-      'activePlayer',
-      'action',
-      'chipSelected',
-      'isFirstTurn',
-      'mode',
-    ])
+      "board",
+      "activePlayer",
+      "action",
+      "pathOptions",
+      "chipSelected",
+      "selectedChip",
+      "isFirstTurn",
+      "mode",
+    ]),
+    ...mapGetters("socket", [
+      "playerColor",
+      "opponentColor",
+      "playerName",
+      "opponentName",
+    ]),
   },
   created() {
-    const mode = window.localStorage.getItem('mode')
-    this.$store.commit("SET_MODE", mode)
-    this.$store.commit("SET_BOARD", this.board)
-  }
+    const mode = window.localStorage.getItem("mode");
+    this.$store.commit("SET_MODE", mode);
+    this.$store.commit("SET_BOARD", this.board);
+    this.$socket.connect();
+  },
+  sockets: {
+    connect() {
+      console.log("socket connected");
+      if (this.mode == "Online PvP") {
+        console.log('isdone');
+        this.$socket.emit("pushName", this.playerName);
+        this.$store.commit("socket/SET_PLAYER_CREDS", {
+          name: this.playerName,
+          id: this.$socket.id,
+        });
+      }
+      this.$socket.emit("getGame", {
+        board: this.boardData,
+        room: this.$socket.id,
+      });
+    },
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
+.board-placeholder {
+  background-color: $board-color;
+  width: 784px;
+  height: 784px;
+  border-radius: $edge;
+}
 </style>

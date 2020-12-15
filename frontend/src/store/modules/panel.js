@@ -16,9 +16,9 @@ const state = {
 const actions = {};
 
 const mutations = {
-  UPDATE_SCORE(state, field) {
+  SUBTRACT_CHIP(state, field) {
     let color = field.color;
-
+    console.log(field);
     if (field.role == "Tzaar") {
       state.piecesLeft[color].tzaar -= 1;
     } else if (field.role == "Tzarra") {
@@ -30,6 +30,7 @@ const mutations = {
 };
 
 export default {
+  namespaced: true,
   state,
   actions,
   mutations,

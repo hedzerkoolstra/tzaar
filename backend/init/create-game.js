@@ -1,28 +1,35 @@
-// let boardData = require("../board/board.json")
+const randomizer = require("./randomize-board");
 
 class Game {
-  constructor(room, board, chipSelected, isFirstTurn, selectedChip, action, activePlayer) {
+  constructor(room, board, playerColors) {
     this.room = room;
-    this.board = board
-    this.isFirstTurn = isFirstTurn
-    this.chipSelected = chipSelected;
-    this.selectedChip = selectedChip;
-    this.action = action;
-    this.activePlayer = activePlayer;
+    this.board = board;
+    this.playerColors = playerColors;
+    this.gameIsPlaying = true;
+    this.chipSelected = false;
+    this.isFirstTurn = true
+    this.selectedChip = {};
+    this.action = 1;
+    this.activePlayer = 'white'
+    this.pathOptions = []
+    this.removedChip = {}
+    this.hasWon = false
+    this.msg = ''
   }
 }
 
 function init(data) {
-    let startingPlayer = determinStartingPlayer()
-    return new Game(data.room, data.board, true, false, {}, 1, startingPlayer)
+    let playerColors = determinPlayerColors()
+    let board = randomizer.randomizeBoard()
+    return new Game(data.room, board, playerColors)
 }
 
-function determinStartingPlayer() {
-  let n = Math.random
+function determinPlayerColors() {
+  let n = Math.random()
   if (n < 0.5) {
-    return 'white'
+    return ['white', 'black']
   } else {
-    return 'black'
+    return ['black', 'white']
   }
 }
 

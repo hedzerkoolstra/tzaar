@@ -2,7 +2,6 @@ let allPlayers = []
 
 function addPlayer(newPlayer) {
     
-    // Check if ID already exitst in lobby
     let idIsNew = true
     allPlayers.forEach(player => {
         if (player.id == newPlayer.id) {
@@ -11,7 +10,6 @@ function addPlayer(newPlayer) {
     })
     console.log('Id is new? ' + idIsNew);
 
-    // Check if name already exitst in lobby
     let nameisNew = true
     allPlayers.forEach(player => {
         if (player.name == newPlayer.name) {
@@ -26,6 +24,7 @@ function addPlayer(newPlayer) {
         console.log(newPlayer.name + ' is added');
     // Change name when id exists but name is new
     } else if (nameisNew && !idIsNew) {
+        console.log('name is new, id not');
         allPlayers.forEach(player => {
             if (player.id == newPlayer.id) {
                 player.name = newPlayer.name
@@ -49,13 +48,12 @@ function removePlayer(id) {
     console.log(allPlayers.length);
 
     let i = allPlayers.findIndex(el => {
-        // console.log(el.id + ' ' +  id);
         return el.id == id
     }) 
 
-    if (allPlayers.length > 0) {
-        console.log(allPlayers[i].name + ' will be removed');
-    }
+    // if (allPlayers.length > 0) {
+    //     console.log(allPlayers[i].name + ' will be removed');
+    // }
     
     allPlayers.splice(i, 1)
     

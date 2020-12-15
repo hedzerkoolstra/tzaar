@@ -1,5 +1,5 @@
 <template>
-  <div class="player-name">
+  <div class="name">
     <span v-if="!edit">{{ inputName }}</span>
     <input ref="name" v-else type="text" v-model="inputName" />
 
@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import EditIcon from "@/components/icons/EditIcon";
-import SaveIcon from "@/components/icons/SaveIcon";
+import EditIcon from "@/components/buttons/EditIcon";
+import SaveIcon from "@/components/buttons/SaveIcon";
 
 export default {
   components: {
@@ -30,11 +30,10 @@ export default {
   },
   created() {
     this.inputName = localStorage.getItem("playerName");
-    // console.log(this.inputName);
     if (this.inputName == undefined) {
       this.setAnonymousName();
     }
-    this.$store.commit("SET_PLAYER_NAME", this.inputName);
+    this.$store.commit("socket/SET_PLAYER_NAME", this.inputName);
   },
   methods: {
     checkIfNameExists() {
@@ -47,18 +46,22 @@ export default {
       return nameExists;
     },
     setAnonymousName() {
-      let playerNumber = Math.round(Math.random() * 10000);
-      this.inputName = "Guest-" + playerNumber;
+      let n = Math.random()
+      if (n < 0.1) {
+        n = n + 0.1
+      }
+      let randomNumber = Math.round(n * 10000);
+      this.inputName = "Guest-" + randomNumber;
     },
     saveName() {
       let nameExists = this.checkIfNameExists();
       if (!nameExists) {
         this.$socket.emit("pushName", this.inputName);
-        this.$store.commit("SET_PLAYER_NAME", this.inputName);
+        this.$store.commit("socket/SET_PLAYER_NAME", this.inputName);
         localStorage.setItem("playerName", this.inputName);
         this.edit = false;
       } else {
-        console.log("Name Exists");
+        this.edit = false;
       }
     },
   },
@@ -66,12 +69,13 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/_variables.scss";
 
-.player-name {
+.name {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
 }
 input {
   max-width: 60%;

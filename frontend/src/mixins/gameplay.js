@@ -26,7 +26,7 @@ export const Gameplay = {
     selectChip(field, x) {
       this.selectedChip = field;
       field.selected = true
-      this.$store.commit("chipSelected", true);
+      this.$store.commit("SET_CHIP_SELECTED", true);
       this.determinPathOptions(this.board, field, x);
       if (this.$store.state.showHelper) {
         this.showOptions();
@@ -52,7 +52,7 @@ export const Gameplay = {
       if (this.selectedChip.height < field.height) {
         this.$store.commit('SET_WARNING', "You can't attack higher towers")
       } else {
-        this.$store.commit("UPDATE_SCORE", Object.assign({}, field))
+        this.$store.commit("SUBTRACT_CHIP", Object.assign({}, field))
 
         let msg = `${this.selectedChip.color} Attacked Enemy ${field.role}`;
         this.$store.commit("ADD_MESSAGE", msg)
@@ -65,11 +65,11 @@ export const Gameplay = {
 
         if (this.isFirstTurn) {
           this.switchTurn();
-          this.$store.commit("FIRST_TURN", false)
+          this.$store.commit("SET_IS_FIRST_TURN", false)
         } else {
           if (this.action == 1) {
             this.resetTurn();
-            this.$store.commit("changeAction", 2);
+            this.$store.commit("SET_ACTION_NUMBER", 2);
           } else {
             // console.log('beforeSwitch')
             this.switchTurn();
@@ -78,7 +78,7 @@ export const Gameplay = {
       }
     },
     stackTower(field) {
-      this.$store.commit("UPDATE_SCORE", Object.assign({}, field))
+      this.$store.commit("SUBTRACT_CHIP", Object.assign({}, field))
 
       field.role = this.selectedChip.role;
       let newHeight = field.height + this.selectedChip.height;
@@ -94,44 +94,17 @@ export const Gameplay = {
     // Utility Functions
     async switchTurn() {
       // await this.checkWin();
-      this.$store.commit("changePlayer");
-      this.$store.commit("changeAction", 1);
+      this.$store.commit("CHANGE_PLAYER");
+      this.$store.commit("SET_ACTION_NUMBER", 1);
       this.resetTurn();
     },
     resetTurn() {
-      this.$store.commit("chipSelected", false);
-      this.pathOptions.forEach(element => {
-        document.getElementById(element).classList.remove("active");
-      });
-      this.pathOptions = [];
-      // console.log('switchEnd', this.board)
+      this.$store.commit("SET_CHIP_SELECTED", false);
+      this.$store.commit("EMPTY_PATH_OPTIONS", false);
     },
     deselectChip() {
       this.selectedChip.occupied = true;
       this.resetTurn();
-    },
-    showOptions() {
-      this.pathOptions.forEach(element => {
-        let optionalField = document.getElementById(element);
-        this.board.data.forEach(row => {
-          row.row.forEach(field => {
-            if (field.id == optionalField.id) {
-              if (
-                this.selectedChip.height >= field.height &&
-                this.activePlayer != field.color &&
-                this.action == 1
-              ) {
-                optionalField.classList.add("active");
-              } else if (
-                this.selectedChip.height >= field.height &&
-                this.action == 2
-              ) {
-                optionalField.classList.add("active");
-              }
-            }
-          });
-        });
-      });
     }
   }
 };

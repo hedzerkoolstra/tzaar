@@ -3,10 +3,19 @@ const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const app = express();
-const server = http.createServer(app);
-const io = socketio(server);
+// const server = http.createServer(app);
+
 
 app.use(express.static(path.join(__dirname, "public")));
+
+const PORT = process.env.PORT || 5555;
+const INDEX = '/index.html';
+
+const server = express()
+.use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+.listen(PORT, () => console.log(`Server runs on port ${PORT}`));
+
+const io = socketio(server);
 
 // Load Files
 const lobby = require("./init/manage-lobby");
@@ -95,6 +104,4 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = 5555 || process.env.PORT;
 
-server.listen(PORT, () => console.log(`Server runs on port ${PORT}`));

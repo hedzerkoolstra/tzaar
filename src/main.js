@@ -9,7 +9,7 @@ Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.use(new VueSocketio({
   debug: true,
-  connection: 'http://localhost:5555',
+  connection: 'https://fathomless-retreat-94763.herokuapp.com/',
   vuex: {
     store,
     actionPrefix: "SOCKET_",

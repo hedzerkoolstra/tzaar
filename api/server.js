@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5555;
 const INDEX = '/index.html';
 
 const server = express()
-.use((req, res) => res.send('Hallo'))
+// .use((req, res) => res.send('Hallo'))
 .listen(PORT, () => console.log(`Server runs on port ${PORT}`));
 
 const io = socketio(server);

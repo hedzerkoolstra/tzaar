@@ -92,7 +92,7 @@ export default {
   .btn--text {
     border: none;
     background-color: transparent;
-    color: $white;
+    // color: $white;
     font-weight: 600;
     cursor: pointer;
     letter-spacing: 1px;
@@ -103,6 +103,7 @@ export default {
     width: $sidebar-width;
     margin-top: 2rem;
     z-index: 5;
+    color: $black;
   }
   .sidebar-list {
     padding: 0 1rem;
@@ -122,6 +123,7 @@ export default {
     .sidebar-item {
       padding: 1rem 2rem;
       min-width: 400px;
+      color: $white;
       h2 {
         margin-top: 0;
       }
